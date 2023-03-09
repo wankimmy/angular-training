@@ -1,0 +1,51 @@
+ <div class="container">
+          <h3>Course Registration</h3>
+        <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.form.valid)">
+           <div class="m-3">
+             <label class="fw-bold">Email</label>
+             <input type="email" name="email" [(ngModel)]="user.email" #email="ngModel" required class="form-control">
+             <small [hidden]="email.valid || (email.pristine && !f.submitted)" class="text-danger">
+             Email is required.
+             </small>
+           </div>
+
+           <div class="m-3">
+             <label class="fw-bold">Course</label>
+             <select name="course" [(ngModel)]="user.course" #course="ngModel" required class="form-control">
+               <option>MERN</option>
+               <option>MEAN</option>
+               <option>JAVA</option>
+             </select>
+             <small [hidden]="course.valid || (course.pristine && !f.submitted)" class="text-danger">
+             Course is required.
+             </small>
+           </div>
+
+           <div class="m-3">
+              <label class="fw-bold">Gender</label>
+              <div class="form-check">
+                <input type="radio" id="radiomale" name="gender" value="male" [(ngModel)]="user.gender" #gender="ngModel" required class="form-check-input">
+                <label class="form-check-label" for="radiomale">
+                  Male
+                </label>
+              </div>
+              <div class="form-check">
+                <input type="radio" id="radiofemale" name="gender" value="female" [(ngModel)]="user.gender" #gender="ngModel" required class="form-check-input">
+                <label class="form-check-label" for="radiofemale">
+                  Female
+                </label>
+              </div>
+            </div>
+
+            <div class="m-3">
+             <label class="fw-bold">Remarks</label>
+             <textarea  type="text" name="remarks" [(ngModel)]="user.remarks" #remarks="ngModel" required class="form-control"></textarea>
+             <small [hidden]="remarks.valid || (remarks.pristine && !f.submitted)" class="text-danger">
+             Remarks is required.
+             </small>
+           </div>
+           
+          
+           <button class="btn btn-success" type="submit">Submit</button>
+        </form>
+      </div>

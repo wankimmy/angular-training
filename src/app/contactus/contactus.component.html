@@ -1,0 +1,66 @@
+
+
+<div class="container">
+	<h4>{{title}}</h4>
+	<div class="content">
+		<ul>
+			<li><strong>Name :</strong> Safwan</li>
+			<li><strong>Address :</strong> Kuala Lumpur, Malaysia</li>
+			<li><strong>Phone Number :</strong> 017-7786836</li>
+		</ul>
+	</div>
+</div>
+<br>
+<div class="container">
+  <h4>{{titleform}}</h4>
+   <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.form.valid)">
+           <div class="m-3">
+             <label class="fw-bold">Name</label>
+             <input type="text" name="name" [(ngModel)]="contactus.name" #name="ngModel" required class="form-control">
+             <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger">
+             Name is required.
+             </small>
+           </div>
+
+           <div class="m-3">
+             <label class="fw-bold">Email</label>
+             <input type="email" name="email" [(ngModel)]="contactus.email" #email="ngModel" required class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+             <small [hidden]="email.valid || (email.pristine && !f.submitted)" class="text-danger">
+             Email format is not correct.
+             </small>
+           </div>
+
+           <div class="m-3">
+             <label class="fw-bold">Phone Number</label>
+             <input type="number" name="contactno" [(ngModel)]="contactus.contactno" #contactno="ngModel" required class="form-control">
+             <small [hidden]="contactno.valid || (contactno.pristine && !f.submitted)" class="text-danger">
+             Phone Number is required.
+             </small>
+           </div>
+
+         
+
+            <div class="m-3">
+             <label class="fw-bold">Message</label>
+             <textarea  type="text" name="message" [(ngModel)]="contactus.message" #message="ngModel" required class="form-control"></textarea>
+             <small [hidden]="message.valid || (message.pristine && !f.submitted)" class="text-danger">
+             Message is required.
+             </small>
+           </div>
+           
+          
+           <button class="btn btn-success" type="submit">Submit</button>
+        </form>
+  <br>
+ 
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+         <div id="map" style="height: 500px;" ></div>
+    </div>
+  </div>
+</div>
+
+
